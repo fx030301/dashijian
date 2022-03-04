@@ -1,12 +1,11 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <!-- 引入JQueryjs -->
-    <script src="/assets/lib/jquery.js"></script>
-    <script src="/assets/js/baseAPI.js"></script>
+  
     <!-- 类ui的CSS -->
     <link rel="stylesheet" href="/assets/lib/layui/css/layui.css">
     <!-- 登录页面的CSS -->
@@ -23,7 +22,7 @@
         <div class="login_title"></div>
         <!-- 登录盒子 -->
         <div class="login_box">
-            <form class="layui-form">
+            <form class="layui-form" id="form_login">
                 <div class="layui-form-item">
                     <i class="layui-icon layui-icon-username"></i>
                     <input type="text" name="username" required  lay-verify="required" placeholder="请输入用户名" autocomplete="off" class="layui-input">
@@ -66,6 +65,10 @@
     </div>
 </body>
 <!-- 引入layiu的JS -->
+  <!-- 引入JQueryjs -->
+    <script src="/assets/lib/jquery.js"></script>
+    <!-- 引入优化的JS -->
+    <script src="/assets/js/baseAPI.js"></script>
 <script src="/assets/lib/layui/layui.all.js"></script>
 <!-- 引入自己的JS -->
 <script src="/assets/js/lonin.js"></script>
