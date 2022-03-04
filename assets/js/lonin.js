@@ -7,6 +7,7 @@ $('#link_login').on('click', function () {
     $('.reg_box').hide()
     $('.login_box').show()
 })
+
 // 登录页面的验证
 var form = layui.form
 var layer = layui.layer;
@@ -37,10 +38,8 @@ $('#form_reg').on('submit', function (e) {
     }, function (res) {
         // console.log(res);
         if (res.status !== 0) {
-            //  return console.log('注册失败');
-            return layer.msg(res.message, {
-                icon: 5
-            })
+           //  return console.log('注册失败');
+           return layer.msg(res.message, {icon: 5})
         }
         // 注册成功跳转页面
         // console.log('注册成功');
@@ -48,23 +47,27 @@ $('#form_reg').on('submit', function (e) {
         $('#link_login').click()
     })
 })
+
+
 // 登录功能实现
 $('#form_login').submit(function (e) {
     e.preventDefault()
-    $.ajax({
-        method: 'post',
-        url: '/api/login',
-        data: $(this).serialize(),
-        success: function (res) {
-            // console.log(res);
-            if (res.status !== 0) {
-                return layer.msg('登录失败')
+    $.ajax(
+        {
+            method:'post',
+            url:'/api/login',
+            data:$(this).serialize(),
+            success:function (res) {
+                // console.log(res);
+                if (res.status !== 0) {
+                    return layer.msg('登录失败')
+                }
+                //  console.log(res.token);
+                // 把res.token存入本地 localstrage中，以便后面验证的时候使用
+                localStorage.setItem('token',res.token)
+                // layer.msg('登录成功')
+                location.href = '/index.html'
             }
-            //  console.log(res.token);
-            // 把res.token存入本地 localstrage中，以便后面验证的时候使用
-            localStorage.setItem('taken', res.token)
-            // layer.msg('登录成功')
-            location.href = '/index.html'
         }
-    })
+    )
 })
