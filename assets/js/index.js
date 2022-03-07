@@ -1,7 +1,6 @@
 // 获取用户的信息  封装函数
 // 
 getUserInfo()
-
 function getUserInfo() {
     $.ajax({
         method: "get",
